@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidMail API</title>
+</head>
+<body>
+    <h1>RapidMail API</h1>
+    <button onclick="getData()">Fetch Data</button>
+    <div id="data-container"></div>
+
+    <script>
+        function getData() {
+            // URL for the RapidMail API endpoint you want to request data from
+            var apiUrl = 'https://https://rapidmail.p.rapidapi.com/';
+
+            // Make a GET request using Fetch API
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'NO KEY', // Replace with your RapidMail API key
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Display the retrieved data in the HTML
+                document.getElementById('data-container').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+    </script>
+</body>
+</html>
