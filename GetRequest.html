@@ -12,14 +12,12 @@
 
     <script>
         function getData() {
-            // URL for the RapidMail API endpoint you want to request data from
             var apiUrl = 'https://https://rapidmail.p.rapidapi.com/';
 
-            // Make a GET request using Fetch API
             fetch(apiUrl, {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'NO KEY', // Replace with your RapidMail API key
+                    'Authorization': 'NO KEY', 
                     'Content-Type': 'application/json'
                 }
             })
